@@ -1,0 +1,16 @@
+{% extends 'layout.html' %}
+{% load crispy_forms_tags %}
+    {% block title %}
+<title>Delete</title>
+    {% endblock %}
+{% block content %}
+<h2 style="text-align:center;">Delete Customer</h2>
+<div class="container" style="55%">
+    <p>Are you sure to delete this customer</p>
+    <form method="post" class="jumbotron">
+        {% csrf_token %}
+        <a href="{% url 'delete_lap' object.id %}"><button class="btn btn-danger">Delete</button></a>
+    </form>
+    <a href="{% url 'update_lap' object.id %}"><button class="btn btn-warning">Cancel</button></a>
+</div>
+{% endblock %}
